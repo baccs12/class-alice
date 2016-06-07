@@ -71,70 +71,7 @@ echo "<b>String Count: </b>". "<pre>";
 var_dump($wordCount->sort($wordCount->display($counts)));
 
 
-// $file = strtolower(file_get_contents('alice.txt'));
-// $dictionary = [];
-// $bannedCharacters = [
-//     ',',
-//     '?',
-//     '(',
-//     '-',
-//     ')',
-//     '`',
-//     '!',
-//     ';',
-//     '.',
-//     '_',
-//     '\'',
-//     '"',
-//     '[',
-//     '*'
-// ];
 
-// class WordFuckingCount
-// {
-
-
-//     public function __construct($fword)
-//     {
-
-//     }
-//     public function modify($fword)
-//     {
-//         $bayag = [
-//             ',',
-//             '?',
-//             '(',
-//             '-',
-//             ')',
-//             '`',
-//             '!',
-//             ';',
-//             '.',
-//             '_',
-//             '\'',
-//             '"',
-//             '[',
-//             '*'
-//             ];
-//             $wew = [];
-//         $putulin = explode("\n", $fword);
-//         $putulin = str_replace($bayag, "", $putulin);
-//         foreach ($putulin as $perbayag) {
-//             $wew = explode(" ", $perbayag);
-//         }
-//         var_dump($wew);
-
-
-//     }
-//     public function sort($fword)
-//     {
-//         echo "sort";
-//     }
-
-// }
-
-// $fuckyou = new WordFuckingCount($file);
-// $fuckyou->modify($file);
 
 // $file = file_get_contents('alice.txt');
 // $byLine = explode("\n", $file);
