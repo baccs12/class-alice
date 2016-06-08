@@ -1,44 +1,76 @@
 <?php
+$content = file_get_contents('todo.csv');
 
-$contents = file_get_contents('todo.csv');
-
-$byLine = explode("\n", $contents);
-
-$table = [];
-
-foreach ($byLine as $line) {
-    $byWords = explode(',', $line);
-
-    list($id, $title, $description) = $byWords;
-
-    $table[] = [
-        'id' => $id,
-        'title' => $title,
-        'description' => $description
-    ];
-}
-
-function rowPrinter($rows, $cols)
+class Csv
 {
-    echo "<table>";
-    echo "<tr>";
-
-    foreach($cols as $col)
+    public function table($content)
     {
-        echo "<th>$col</th>";
+        $csvContent = explode("\n", $content);
+
+        return $csvContent;
     }
-    echo "</tr>";
 
-    foreach($rows as $row)
+    public function createTable($rows, $cols)
     {
-        echo "<tr>";
+        echo "<table border=1>";
+        foreach ($rows as $row) {
+            $rowContent = explode(",", $row);
+            echo "<tr>";
+        foreach ($rowContent as $rowContents){
 
-        foreach ($cols as $col) {
-            echo "<td>{$row[$col]}</td>";
+        echo "<td>$rowContents</td>";
+            }
         }
-        echo "</tr>";
+
     }
-    echo "</table>";
 }
 
-rowPrinter($table, ['id', 'title', 'description']);
+$csvTable = new Csv($content);
+$csvTable->createTable($csvTable->table($content));
+
+
+
+
+// $contents = file_get_contents('todo.csv');
+
+//     $byLine = explode("\n", $contents);
+
+//     $table = [];
+
+// foreach ($byLine as $line) {
+//     $byWords = explode(',', $line);
+
+//     list($id, $title, $description) = $byWords;
+
+//     $table[] = [
+//         'id' => $id,
+//         'title' => $title,
+//         'description' => $description
+//     ];
+// }
+
+// function rowPrinter($rows, $cols)
+// {
+//     echo "<table>";
+//     echo "<tr>";
+
+//     foreach($cols as $col)
+//     {
+//         echo "<th>$col</th>";
+//     }
+//     echo "</tr>";
+
+//     foreach($rows as $row)
+//     {
+//         echo "<tr>";
+
+//         foreach ($cols as $col) {
+//             echo "<td>{$row[$col]}</td>";
+//         }
+//         echo "</tr>";
+//     }
+//     echo "</table>";
+// }
+
+// rowPrinter($table, ['id', 'title', 'description']);
+

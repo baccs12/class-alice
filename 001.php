@@ -51,7 +51,7 @@ class WordCounter
         }
         return $filtered;
     }
-    public function getTop($sort)
+    public function topSort($sort)
     {
         arsort($sort);
         $sort = array_slice($sort, 0, 20);
@@ -66,7 +66,7 @@ class WordCounter
 
 $wordCount = new WordCounter();
 echo "<b>Top 20 Words: </b>". "<pre>";
-var_dump($wordCount->getTop($wordCount->display($counts)));
+var_dump($wordCount->topSort($wordCount->display($counts)));
 echo "<b>String Count: </b>". "<pre>";
 var_dump($wordCount->sort($wordCount->display($counts)));
 
