@@ -7,11 +7,16 @@
 <body>
     <?php
         // var_dump($_FILES['avatar'], __DIR__);
-        $photo = __DIR__. '/'. md5(date('Y-m-d H:i:s')) . '.jpg';
+
     class Photo {
         public function upload($photo){
+        $filename = md5(date('Y-m-d H:i:s')) . '.jpg';
+        $photo = __DIR__. '/'. $filename;
         if(move_uploaded_file($_FILES['avatar']['tmp_name'], $photo)) {
             echo "Successfully Uploaded";
+            // var_dump($filename);
+            // echo $filename;
+            echo "<img src=\"$filename\">";
             }
 
         }
