@@ -6,10 +6,24 @@
 </head>
 <body>
     <?php
-        var_dump($_FILES['avatar'], __DIR__);
-        $filename = __DIR__. '/'. md5(date('Y-m-d H:i:s')) . '.jpg';
+        // var_dump($_FILES['avatar'], __DIR__);
+        $photo = __DIR__. '/'. md5(date('Y-m-d H:i:s')) . '.jpg';
+    class Photo {
+        public function upload($photo){
+        if(move_uploaded_file($_FILES['avatar']['tmp_name'], $photo)) {
+            echo "Successfully Uploaded";
+            }
 
-        move_uploaded_file($_FILES['avatar']['tmp_name'], $filename);
+        }
+    }
+
+
+    $picupload = new Photo($photo);
+    $picupload->upload($photo);
+
+
+
+
     ?>
     <form method="POST" enctype="multipart/form-data">
         <input type="file" name="avatar">
